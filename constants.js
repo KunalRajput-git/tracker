@@ -5,7 +5,7 @@ const SESSIONSTRING = process.env.SESSIONSTRING;
 const SELFPING_CRON_EXPRESSION = "*/10 * * * *";
 const USER_ID = "+919315068278" || 7289962164n;
 const PORT = process.env.PORT || 4000;
-const SELF_PING_URL = "https://tracker-gkny.onrender.com";
+const SELF_PING_URL = "https://tracker-xjd5.onrender.com";
 
 module.exports = {
   APIID,
