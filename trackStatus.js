@@ -1,6 +1,7 @@
 const { TelegramClient } = require("telegram");
 const { StringSession } = require("telegram/sessions");
 const { APIID, APIHASH, SESSIONSTRING, USER_ID } = require("./constants");
+const { dateConfig } = require("./config");
 const stringSession = new StringSession(SESSIONSTRING);
 
 const trackStatus = async () => {
@@ -17,13 +18,18 @@ const trackStatus = async () => {
 
       if (status.className === "UserStatusOnline") {
         if (!isNotified) {
-          console.log(`sania is Online, ${new Date().toLocaleTimeString()}`);
+          console.log(
+            `sania is Online, ${new Date().toLocaleTimeString(
+              "en-IN",
+              dateConfig
+            )}`
+          );
         }
         isNotified = true;
       } else {
         const lastSeenDate = new Date(
           status.wasOnline * 1000
-        ).toLocaleTimeString();
+        ).toLocaleTimeString("en-IN", dateConfig);
         console.log(`sania is offline, last seen at ${lastSeenDate}`);
         isNotified = false;
       }
